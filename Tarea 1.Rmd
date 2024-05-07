@@ -1,0 +1,68 @@
+---
+title: "tarea 1+"
+output: html_document
+---
+
+
+## 0. Importamos la data y abrimos las librerias 
+
+```{r}
+install.packages("dplyr")
+install.packages("reticulate")
+```
+
+```{r}
+#library(rio)
+#library(polycor)
+#library(psych)
+#library(FactoMineR)
+#library(ggcorrplot)
+#library(GPArotation)
+#library(BBmisc)
+#library(car)
+library (reticulate)
+library(dplyr)
+library(ggplot2)
+```
+```{r}
+DB<-read.csv ("datos_abiertos_vigilancia_dengue.csv")
+```
+
+```{r}
+str (DB)
+```
+```{r}
+names (DB)
+```
+```{r}
+#tipo_edad
+#edad
+
+#ano
+```
+```{r}
+table (DB$ano)
+table (DB$edad)
+```
+```{r}
+P1<-df [(ano )]
+```
+
+
+```{r}
+facets= ggplot(data=DB,
+               aes(x=ano,y=edad,color=enfermedad)) + theme_light() +
+    scale_y_log10(labels=scales::comma) 
+  facets +    
+    geom_smooth()  + 
+    facet_grid(statsName~.,scales = 'free_y') 
+```
+
+
+#Responda: La edad media del contagiado de dengue vario a través de los años? Fue lo mismo segun gravedad?
+
+#Responda: La cantidad de casos  vario a través de los años? Fue lo mismo segun gravedad?
+#Responda: Cuales fueron las provincias mas afectadas con contagiados a lo largo de los años?
+#Responda: Qué relación habia entre los casos alarmantes no graves y los asintomaticos segun departamento a lo largo de los años?
+
+
